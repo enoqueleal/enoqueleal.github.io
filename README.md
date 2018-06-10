@@ -11,6 +11,5 @@ Esse é meu novo site para divulgação do meu portifólio.
 
   * HTML 5
   * CSS 3
+  * JavaScript
   * Bootstrap 3.3
-  * PHP 5.6
-  * MySQL 5.6
