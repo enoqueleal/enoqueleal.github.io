@@ -2,7 +2,7 @@
 
 This is my new website.
 
-URL: https://enoquefelipe.github.io/
+URL: https://enoqueleal.github.io
 
 ## Descrição
 Esse é meu novo site para divulgação do meu portifólio.
