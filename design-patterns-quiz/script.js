@@ -24,12 +24,12 @@ var questionNumber = 0,
 var allQuestions = [
     {
         question: "O que é design patterns?",
-        choices: ["Um catalogo de soluções para problemas recorrentes", "Um framework assim como o Spring ou Laravel", "Uma linguagem de programação "],
+        choices: ["Um catalogo de soluções para problemas recorrentes", "Um framework", "Uma linguagem de programação "],
         answer: 0
     }
     , {
         question: "Quais são os três tipos de Design Patters que foram catalogados no clássico livro Design Patterns: Elements of Reusable Object-Oriented Software do GoF (Gang of Four)?",
-        choices: ["Criacional,Builder e Factory Method", "Criacional, comportamental e estrutural", "Estrutural, comportamental e Template Method"],
+        choices: ["Criacional, Builder e Factory Method", "Criacional, comportamental e estrutural", "Estrutural, comportamental e Template Method"],
         answer: 1
     }
     , {
@@ -39,32 +39,32 @@ var allQuestions = [
     }
     , {
         question: "O pattern Façade é de qual tipo?",
-        choices: ["Estrutural", "Comportamental", "Criacional"],
-        answer: 0
+        choices: ["Comportamental", "Estrutural", "Criacional"],
+        answer: 1
     }
     , {
         question: "O pattern Observer é de qual tipo?",
-        choices: ["Estrutural", "Comportamental", "Criacional"],
-        answer: 1
+        choices: ["Criacional", "Estrutural", "Comportamental"],
+        answer: 2
     }
 ];
 
 var result = [
     {
         image: "img/congrats.gif",
-        comment: " Parabéns, você é fera. :D"
+        comment: " Yeah, você mandou muito bem."
     }
     , {
-        image: "http://www.reactiongifs.us/wp-content/uploads/2013/03/GoT_joffrey_approves.gif",
-        comment: " Not bad."
+        image: "img/good-job.gif",
+        comment: " Quase lá..."
     }
     , {
         image: "img/retry.gif",
-        comment: " Precisamos revisar os conceitos."
+        comment: " Ops, é necessário revisar os conceitos!"
     }
     , {
         image: "img/failed.gif",
-        comment: " Eu sei que você consegue fazer melhor."
+        comment: " Eu sei que você pode fazer melhor!"
     }
 ];
 
