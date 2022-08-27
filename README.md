@@ -1,11 +1,9 @@
 # enoquefelipe.github.io
 
-This is my new website.
-
 URL: https://enoqueleal.github.io
 
 ## Descrição
-Esse é meu novo site para divulgação do meu portifólio.
+Esse é o repositório do meu site pessoal, construído para divulgação do meu portfólio e de conteúdo que venho criando ao passar do tempo.
 
 ## Technologies Stack:
 
