@@ -79,8 +79,6 @@ a:hover, a:focus {
 }
 ul, ol {
 	padding: 0;
-	webkit-padding: 0;
-	moz-padding: 0;
 	list-style: none;
 }
 .img-centered {
@@ -192,8 +190,6 @@ header p {
 	margin-bottom: 80px;
 }
 /* About Section */
-#about-section {
-}
 #about-section .container {
 	padding-top: 100px;
 	padding-bottom: 100px;
@@ -342,6 +338,7 @@ ol.type li a:hover {
 .hover-bg:hover .hover-text>h4 {
 	opacity: 1;
 	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
 	-webkit-transform: translateY(0);
 	transform: translateY(0);
 }
@@ -676,3 +673,185 @@ label {
 	padding: 22% 10%;
 }
 }
+
+/* ======== Regras responsivas adicionais (adicionadas para compatibilidade móvel) ======== */
+/* Essas regras foram adicionadas sem alterar HTML/JS para preservar comportamento atual */
+
+/* Tornar imagens e items de portfolio responsivos */
+.hover-bg img,
+.portfolio-item img,
+.portfolio-modal .modal-content img,
+#works-section img,
+#clients-section img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* Ajustes de overlay para alturas variáveis em mobile */
+.hover-bg .hover-text {
+	padding: 25% 0;
+	box-sizing: border-box;
+}
+
+.portfolio-modal .modal-content {
+	padding: 60px 20px;
+	min-height: auto;
+}
+
+/* Ajustes de tipografia e tamanhos */
+.achievement-box span.count {
+	font-size: 40px;
+}
+.intro-text H1 {
+	font-size: 46px;
+}
+
+/* Navbar e layout para telas menores */
+@media (max-width: 991px) {
+	.intro-text {
+		padding-top: 180px;
+		padding-bottom: 120px;
+	}
+	.intro-text H1 {
+		font-size: 48px;
+	}
+	#menu.navbar-default .navbar-nav > li > a {
+		font-size: 13px;
+		padding: 10px 8px;
+	}
+	.portfolio-item {
+		margin-bottom: 20px;
+	}
+	.hover-bg .hover-text {
+		padding: 20% 0;
+	}
+}
+
+@media (max-width: 768px) {
+	.intro-text {
+		padding-top: 140px;
+		padding-bottom: 80px;
+	}
+	.intro-text H1 {
+		font-size: 40px;
+	}
+	.intro-text p {
+		font-size: 16px;
+	}
+	#services-section .service h4 {
+		font-size: 18px;
+	}
+	.hover-bg .hover-text {
+		padding: 18% 0;
+	}
+	.hover-bg .hover-text>h4 {
+		font-size: 18px;
+	}
+	/* Suavizar transições do isotope em telas menores (não altera lógica JS) */
+	.isotope {
+		-webkit-transition-duration: 0.6s;
+		transition-duration: 0.6s;
+	}
+	.isotope .isotope-item {
+		-webkit-transition-duration: 0.6s;
+		transition-duration: 0.6s;
+	}
+}
+
+@media (max-width: 480px) {
+	.intro-text {
+		padding-top: 100px;
+		padding-bottom: 60px;
+		text-align: center;
+	}
+	.intro-text H1 {
+		font-size: 30px;
+		line-height: 36px;
+	}
+	.intro-text p {
+		font-size: 14px;
+	}
+	#menu {
+		padding: 10px;
+	}
+	#menu .navbar-header .navbar-brand {
+		font-size: 18px;
+	}
+	.hover-bg .hover-text {
+		padding: 14% 0;
+	}
+	.hover-bg .hover-text>h4 {
+		font-size: 16px;
+		transform: translateY(0);
+	}
+	.portfolio-item {
+		margin-bottom: 18px;
+	}
+	.portfolio-item .hover-bg,
+	.portfolio-item img {
+		width: 100%;
+		height: auto;
+	}
+	#contact-section .form-control {
+		font-size: 14px;
+		padding: 8px 10px;
+	}
+	.portfolio-modal .modal-content {
+		padding: 40px 16px;
+	}
+	#testimonials-section .carousel-info img {
+		height: 55px;
+		width: 55px;
+	}
+	#footer p {
+		font-size: 12px;
+	}
+}
+
+@media (max-width: 360px) {
+	.hover-bg .hover-text {
+		padding: 12% 0;
+	}
+	.intro-text H1 {
+		font-size: 26px;
+	}
+	.intro-text p {
+		font-size: 13px;
+	}
+}
+
+/* ======== Padronizar tamanho das imagens SVG (ícones) ======== */
+/* Aplica-se a: imagens .svg usadas como <img>, e ícones do tema com classe .book-icon */
+:root {
+	--svg-icon-size: 150px; /* ajuste conforme desejar */
+}
+
+/* imagens SVG referenciadas por img (logos e icons) */
+img[src$=".svg"],
+img[src*="/icons/"],
+img[src*="img/logos/"],
+.book-icon {
+	width: var(--svg-icon-size) !important;
+	height: var(--svg-icon-size) !important;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto;
+	object-position: center;
+}
+
+/* pequenos ícones inline do tema que usam SVG diretamente com classe book-icon */
+svg.book-icon,
+svg.icon {
+	width: var(--svg-icon-size) !important;
+	height: var(--svg-icon-size) !important;
+	display: block;
+	margin: 0 auto;
+}
+
+/* Em telas muito pequenas, reduzir um pouco os ícones */
+@media (max-width: 480px) {
+	:root { --svg-icon-size: 40px; }
+}
+
+/* ======== Fim das regras responsivas adicionais ======== */
