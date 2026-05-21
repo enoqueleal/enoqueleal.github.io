@@ -43,13 +43,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#home" class="page-scroll">Home</a></li>
-                <li><a href="#about-section" class="page-scroll">Sobre</a></li>
-                <li><a href="#services-section" class="page-scroll">Serviços</a></li>
-                <li><a href="#works-section" class="page-scroll">Tecnologias</a></li>
-                <li><a href="https://dev.to/enoqueleal" class="page-scroll">Blog</a></li>
-                <li><a href="https://linktr.ee/enoque.dev" class="page-scroll">Linktree</a></li>
-                <li><a href="#contact-section" class="page-scroll">Contato</a></li>
+                <li><a href="#home" class="page-scroll" data-i18n="nav.home">Home</a></li>
+                <li><a href="#about-section" class="page-scroll" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#services-section" class="page-scroll" data-i18n="nav.services">Serviços</a></li>
+                <li><a href="#works-section" class="page-scroll" data-i18n="nav.technologies">Tecnologias</a></li>
+                <li><a href="https://dev.to/enoqueleal" class="page-scroll" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="https://linktr.ee/enoque.dev" class="page-scroll" data-i18n="nav.linktree">Linktree</a></li>
+                <li><a href="#contact-section" class="page-scroll" data-i18n="nav.contact">Contato</a></li>
+                <li><a href="#" id="lang-pt-BR" class="page-scroll">🇧🇷 PT</a></li>
+                <li><a href="#" id="lang-en" class="page-scroll">🇺🇸 EN</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
@@ -61,10 +63,10 @@
 <header name="home">
     <div class="container">
         <div class="intro-text">
-            <h1 class="wow fadeInDown">Olá, sou <span class="brand">Enoque Leal</span></h1>
-            <p class="wow fadeInDown" data-wow-delay="600ms">Software Engineer</p>
+            <h1 class="wow fadeInDown"><span data-i18n="header.greeting">Olá, sou</span> <span class="brand">Enoque Leal</span></h1>
+            <p class="wow fadeInDown" data-wow-delay="600ms" data-i18n="header.role">Software Engineer</p>
             <div class="clearfix"></div>
-            <a href="#about-section" class="btn btn-default btn-lg page-scroll wow fadeInDown" data-wow-delay="1000ms">Saber mais</a>
+            <a href="#about-section" class="btn btn-default btn-lg page-scroll wow fadeInDown" data-wow-delay="1000ms" data-i18n="header.learnMore">Saber mais</a>
         </div>
     </div>
 </header>
@@ -72,24 +74,24 @@
 <div id="about-section">
     <div class="container">
         <div class="section-title wow fadeInDown">
-            <h2>Sobre mim</h2>
+            <h2 data-i18n="about.title">Sobre mim</h2>
             <hr>
         </div>
         <div class="row wow fadeInDown" data-wow-delay="200ms">
             <div class="col-md-6">
                 <div class="about-text1">
 
-                    <h3>Quem sou</h3>
+                    <h3 data-i18n="about.whoAmI">Quem sou</h3>
 
-                    <p>Trabalho com tecnologia há 15 anos e, ao longo da minha carreira, tive a oportunidade de atuar em diversas empresas de médio e grande porte, sempre focado no desenvolvimento de soluções e na construção de sistemas em diferentes linguagens, com experiência predominante em Java e seus diversos frameworks.</p>
+                    <p data-i18n="about.paragraph1">Trabalho com tecnologia há 15 anos e, ao longo da minha carreira, tive a oportunidade de atuar em diversas empresas de médio e grande porte, sempre focado no desenvolvimento de soluções e na construção de sistemas em diferentes linguagens, com experiência predominante em Java e seus diversos frameworks.</p>
 
-                    <p>Atualmente, ocupo uma posição de liderança como Engineering Manager, mas busco manter minha veia técnica sempre ativa. Por isso, continuo estudando e me aperfeiçoando, praticando o lifelong learning.</p>
+                    <p data-i18n="about.paragraph2">Atualmente, ocupo uma posição de liderança como Engineering Manager, mas busco manter minha veia técnica sempre ativa. Por isso, continuo estudando e me aperfeiçoando, praticando o lifelong learning.</p>
 
-                    <p>Estou constantemente em busca de novos conhecimentos, explorando e testando novas tecnologias, além de me aprofundar naquelas que já domino.</p>
+                    <p data-i18n="about.paragraph3">Estou constantemente em busca de novos conhecimentos, explorando e testando novas tecnologias, além de me aprofundar naquelas que já domino.</p>
 
-                    <p>Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender outras pessoas. Afinal, niguém sabe de tudo!</p>
+                    <p data-i18n="about.paragraph4">Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender outras pessoas. Afinal, niguém sabe de tudo!</p>
 
-                    <p>Além da minha carreira na indústria como Engenheiro de Software, também atuo na área acadêmica, ministrando aulas no curso superior de Análise e Desenvolvimento de Sistemas no Centro Universitário Senac. Também trabalho como Instrutor Autorizado AWS, entregando treinamentos oficiais da AWS em parceria com a Ka Solution.</p>
+                    <p data-i18n="about.paragraph5">Além da minha carreira na indústria como Engenheiro de Software, também atuo na área acadêmica, ministrando aulas no curso superior de Análise e Desenvolvimento de Sistemas no Centro Universitário Senac. Também trabalho como Instrutor Autorizado AWS, entregando treinamentos oficiais da AWS em parceria com a Ka Solution.</p>
 
                 </div>
             </div>
@@ -103,7 +105,7 @@
 <div id="services-section">
     <div class="container">
         <div class="section-title wow fadeInDown">
-            <h2>O que eu faço</h2>
+            <h2 data-i18n="services.title">O que eu faço</h2>
             <hr>
             <div class="clearfix"></div>
         </div>
@@ -112,8 +114,8 @@
                 <div class="row service wow fadeInDown" data-wow-delay="600ms">
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden-xs"><i class="fa fa-desktop"></i></div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                        <h4>Back-end</h4>
-                        <p>Implementação de regras de negócio em Java com expertise no ecossistema Spring Framework e nos principais frameworks do mercado.</p>
+                        <h4 data-i18n="services.backend.title">Back-end</h4>
+                        <p data-i18n="services.backend.description">Implementação de regras de negócio em Java com expertise no ecossistema Spring Framework e nos principais frameworks do mercado.</p>
                     </div>
                 </div>
             </div>
@@ -122,8 +124,8 @@
                 <div class="row service wow fadeInDown" data-wow-delay="200ms">
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden-xs"><i class="fa fa-gears"></i></div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                        <h4>Arquitetura</h4>
-                        <p>Definição e implementação de arquiteturas de software escaláveis e resilientes, alinhando boas práticas de engenharia a padrões modernos como microservices, event-driven e cloud-native.</p>
+                        <h4 data-i18n="services.architecture.title">Arquitetura</h4>
+                        <p data-i18n="services.architecture.description">Definição e implementação de arquiteturas de software escaláveis e resilientes, alinhando boas práticas de engenharia a padrões modernos como microservices, event-driven e cloud-native.</p>
                     </div>
                 </div>
             </div>
@@ -132,8 +134,8 @@
                 <div class="row service wow fadeInDown" data-wow-delay="400ms">
                     <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 hidden-xs"><i class="fa fa-cloud"></i></div>
                     <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-                        <h4>Soluções</h4>
-                        <p>Arquitetura de soluções cloud-native na AWS, com foco em escalabilidade, segurança e excelência operacional.</p>
+                        <h4 data-i18n="services.solutions.title">Soluções</h4>
+                        <p data-i18n="services.solutions.description">Arquitetura de soluções cloud-native na AWS, com foco em escalabilidade, segurança e excelência operacional.</p>
                     </div>
                 </div>
             </div>
@@ -148,7 +150,7 @@
     <div class="container">
         <!-- Container -->
         <div class="section-title wow fadeInDown">
-            <h2>Tecnologias</h2>
+            <h2 data-i18n="technologies.title">Tecnologias</h2>
             <hr>
             <div class="clearfix"></div>
         </div>
@@ -156,10 +158,10 @@
             <ul class="cat">
                 <li>
                     <ol class="type">
-                        <li><a href="#" data-filter="*" class="active">Todas</a></li>
-                        <li><a href="#" data-filter=".lang">Linguagens</a></li>
-                        <li><a href="#" data-filter=".frame">Frameworks</a></li>
-                        <li><a href="#" data-filter=".cloud">Cloud Providers</a></li>
+                        <li><a href="#" data-filter="*" class="active" data-i18n="technologies.all">Todas</a></li>
+                        <li><a href="#" data-filter=".lang" data-i18n="technologies.languages">Linguagens</a></li>
+                        <li><a href="#" data-filter=".frame" data-i18n="technologies.frameworks">Frameworks</a></li>
+                        <li><a href="#" data-filter=".cloud" data-i18n="technologies.cloudProviders">Cloud Providers</a></li>
                     </ol>
                 </li>
             </ul>
@@ -233,15 +235,15 @@
 <div id="contact-section">
     <div class="container">
         <div class="section-title wow fadeInDown">
-            <h2>Entre em contato</h2>
+            <h2 data-i18n="contact.title">Entre em contato</h2>
             <hr>
             <div class="clearfix"></div>
         </div>
         <div class="col-md-12 wow fadeInDown" data-wow-delay="200ms">
-            <h3>Informações de contato</h3>
-            <p><i class="fa fa-map-marker fa-fw"></i>São Paulo - SP, Brazil<br></p>
+            <h3 data-i18n="contact.contactInfo">Informações de contato</h3>
+            <p><i class="fa fa-map-marker fa-fw"></i><span data-i18n="contact.location">São Paulo - SP, Brazil</span><br></p>
             <div class="space"></div>
-            <p><i class="fa fa-envelope-o fa-fw"></i>Para entrar em contato comigo, abra uma <b>Issue</b> no repositório listado abaixo</p>
+            <p><i class="fa fa-envelope-o fa-fw"></i><span data-i18n="contact.contactInstructions">Para entrar em contato comigo, abra uma <b>Issue</b> no repositório listado abaixo</span></p>
             <div class="space"></div>
             <p><i class="fa fa-github fa-fw"></i> <a href="https://github.com/enoqueleal/enoqueleal.github.io/issues">https://github.com/enoqueleal/enoqueleal.github.io/issues</a></p>
         </div>
@@ -261,7 +263,7 @@
 </div>
 <div id="footer" class="text-center">
     <div class="container">
-        <p>Copyright &copy; eleal. All rights reserved.</p>
+        <p data-i18n="footer.copyright">Copyright &copy; eleal. All rights reserved.</p>
     </div>
 </div>
 
@@ -279,6 +281,7 @@
 <script type="text/javascript" src="js/contact_me.js"></script>
 
 <!-- Javascripts -->
+<script type="text/javascript" src="js/i18n.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 

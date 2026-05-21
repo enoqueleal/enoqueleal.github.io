@@ -1,5 +1,6 @@
 
 $(document).ready(function () {
+    loadQuestionsFromI18n();
     start(questionNumber);
 
     $(".submit-answer").on("click", function (event) {
@@ -21,33 +22,43 @@ var questionNumber = 0,
     totalCorrect = 0,
     optionFinal = 0;
 
-var allQuestions = [
-    {
-        question: "O que é design patterns?",
-        choices: ["Um catalogo de soluções para problemas recorrentes", "Um framework", "Uma linguagem de programação "],
-        answer: 0
+var allQuestions = [];
+
+// Load questions from i18n system
+function loadQuestionsFromI18n() {
+    if (window.QuizI18n && window.QuizI18n.getQuestions) {
+        allQuestions = window.QuizI18n.getQuestions();
+    } else {
+        // Fallback to Portuguese questions if i18n is not available
+        allQuestions = [
+            {
+                question: "O que é design patterns?",
+                choices: ["Um catalogo de soluções para problemas recorrentes", "Um framework", "Uma linguagem de programação "],
+                answer: 0
+            }
+            , {
+                question: "Quais são os três tipos de Design Patters que foram catalogados no clássico livro Design Patterns: Elements of Reusable Object-Oriented Software do GoF (Gang of Four)?",
+                choices: ["Criacional, Builder e Factory Method", "Criacional, comportamental e estrutural", "Estrutural, comportamental e Template Method"],
+                answer: 1
+            }
+            , {
+                question: "O pattern Factory Method é de qual tipo?",
+                choices: ["Estrutural", "Comportamental", "Criacional"],
+                answer: 2
+            }
+            , {
+                question: "O pattern Façade é de qual tipo?",
+                choices: ["Comportamental", "Estrutural", "Criacional"],
+                answer: 1
+            }
+            , {
+                question: "O pattern Observer é de qual tipo?",
+                choices: ["Criacional", "Estrutural", "Comportamental"],
+                answer: 2
+            }
+        ];
     }
-    , {
-        question: "Quais são os três tipos de Design Patters que foram catalogados no clássico livro Design Patterns: Elements of Reusable Object-Oriented Software do GoF (Gang of Four)?",
-        choices: ["Criacional, Builder e Factory Method", "Criacional, comportamental e estrutural", "Estrutural, comportamental e Template Method"],
-        answer: 1
-    }
-    , {
-        question: "O pattern Factory Method é de qual tipo?",
-        choices: ["Estrutural", "Comportamental", "Criacional"],
-        answer: 2
-    }
-    , {
-        question: "O pattern Façade é de qual tipo?",
-        choices: ["Comportamental", "Estrutural", "Criacional"],
-        answer: 1
-    }
-    , {
-        question: "O pattern Observer é de qual tipo?",
-        choices: ["Criacional", "Estrutural", "Comportamental"],
-        answer: 2
-    }
-];
+}
 
 var result = [
     {
@@ -92,7 +103,21 @@ function question(questionNum) {
 function end() {
     finalImage();
     $("ul").hide();
-    $("h2").text("Você acertou " + totalCorrect + " de " + allQuestions.length + " questões. " + result[optionFinal].comment);
+    
+    // Use i18n for result text if available
+    var resultText;
+    if (window.QuizI18n && window.QuizI18n.t) {
+        var translations = window.QuizI18n.translations[window.QuizI18n.currentLanguage];
+        if (translations && translations.result) {
+            resultText = translations.result.youGot + " " + totalCorrect + " " + translations.result.of + " " + allQuestions.length + " " + translations.result.questions + " " + window.QuizI18n.getResultComment(totalCorrect);
+        } else {
+            resultText = "Você acertou " + totalCorrect + " de " + allQuestions.length + " questões. " + result[optionFinal].comment;
+        }
+    } else {
+        resultText = "Você acertou " + totalCorrect + " de " + allQuestions.length + " questões. " + result[optionFinal].comment;
+    }
+    
+    $("h2").text(resultText);
     $("#image").html('<img src=' + result[optionFinal].image + ' alt="">').fadeIn(1000);
     $("#try-again-container").show();
     restart();
