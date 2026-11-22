@@ -1,0 +1,113 @@
+# Blog do enoque.dev — Hugo extended 0.158.0 + tema hugo-book (submódulo)
+#
+# Desenvolvimento:  hugo server --source blog
+# Build produção:   hugo --source blog --minify --gc
+# Publicado em https://enoque.dev/blog/ pelo workflow .github/workflows/deploy.yml
+
+baseURL: https://enoque.dev/blog/
+title: enoque.dev
+theme: hugo-book
+
+disablePathToLower: true
+enableEmoji: true # :+1: e afins, usados nos artigos importados
+enableGitInfo: true
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true # necessário para os shortcodes mermaid/katex
+    parser:
+      attribute:
+        block: true
+        title: true
+  tableOfContents:
+    startLevel: 1
+  highlight:
+    style: base16-snazzy
+
+# Português na raiz (/blog/), inglês em /blog/en/.
+# Traduções vinculadas por diretório: mesmo caminho em content.pt e content.en.
+defaultContentLanguage: pt
+defaultContentLanguageInSubdir: false
+
+languages:
+  pt:
+    label: Português
+    languageCode: pt-BR
+    contentDir: content.pt
+    weight: 1
+    permalinks:
+      page:
+        docs: /trilhas/:sections[1:]/:slug/
+      section:
+        docs: /trilhas/:sections[1:]/
+  en:
+    label: English
+    languageCode: en
+    contentDir: content.en
+    weight: 2
+    permalinks:
+      page:
+        docs: /tracks/:sections[1:]/:slug/
+      section:
+        docs: /tracks/:sections[1:]/
+    params:
+      BookDateFormat: "January 2, 2006"
+
+# Só tags; as trilhas já cumprem o papel de categorias
+taxonomies:
+  tag: tags
+
+services:
+  googleAnalytics:
+    ID: G-X9L3PKSVL0
+
+menu:
+  before:
+    - name: "Home"
+      title: "Home" # sem isto o tema exibe o título da página ("Blog")
+      pageRef: "/" # página inicial do blog no idioma atual (/blog/ ou /blog/en/)
+      weight: 1
+      params:
+        bookIcon: home
+  after:
+    - name: "GitHub"
+      url: "https://github.com/enoqueleal"
+      weight: 10
+      params:
+        bookIcon: github
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/enoqueleal"
+      weight: 20
+      params:
+        bookIcon: linkedin
+    - name: "YouTube"
+      url: "https://www.youtube.com/@enoque-dev"
+      weight: 30
+      params:
+        bookIcon: youtube
+    - name: "enoque.dev"
+      url: "https://enoque.dev/"
+      weight: 40
+      params:
+        bookIcon: website
+        bookNewTab: false # site principal: abre na mesma aba
+
+params:
+  BookTheme: auto
+  BookToC: true
+  # '/' mostra no menu as seções de primeiro nível: posts (Artigos) e docs (Trilhas).
+  # Novas pastas de primeiro nível aparecem no menu, a menos que tenham bookHidden: true.
+  BookSection: /
+
+  BookRepo: "https://github.com/enoqueleal/enoqueleal.github.io"
+  BookLastChangeLink: "{{ .Site.Params.BookRepo }}/commit/{{ .GitInfo.Hash }}"
+  # .Path é relativo ao projeto Hugo (blog/), por isso o prefixo blog/
+  BookEditLink: "{{ .Site.Params.BookRepo }}/edit/master/blog/{{ .Path }}"
+  BookDateFormat: "02/01/2006"
+
+  BookSearch: true
+  BookComments: false
+  BookPortableLinks: "warning"
+  # Service worker desativado: sob /blog/ ele pode servir páginas antigas após um deploy
+  BookServiceWorker: false

@@ -1,0 +1,18 @@
+{{- /*
+  Lista os artigos do idioma atual que têm uma tag, do mais recente para o mais antigo.
+  Uso: {{< related-posts tag="java" >}}. Sem artigos, não renderiza nada.
+*/ -}}
+{{- $tag := .Get "tag" -}}
+{{- if not $tag }}{{ errorf "%s: related-posts exige o parâmetro tag" .Page.File.Path }}{{ end -}}
+{{- $posts := where (where site.RegularPages "Section" "posts") "Params.tags" "intersect" (slice $tag) -}}
+{{- with $posts.ByDate.Reverse }}
+<h2 id="related-posts">{{ i18n "relatedPosts" }}</h2>
+<ul class="recent-posts related-posts">
+  {{- range . }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "docs/date" (dict "Date" .Date "Format" site.Params.BookDateFormat) }}</time>
+  </li>
+  {{- end }}
+</ul>
+{{- end }}

@@ -1,0 +1,15 @@
+{{- /* Comportamento do seletor de tema (markup em inject/menu-before.html). */ -}}
+<script>
+  (function () {
+    var root = document.documentElement;
+    var current = root.getAttribute("data-theme");
+    var radios = document.querySelectorAll('#theme-switch input[name="theme"]');
+    radios.forEach(function (radio) {
+      radio.checked = radio.value === current;
+      radio.addEventListener("change", function () {
+        root.setAttribute("data-theme", radio.value);
+        try { localStorage.setItem("preferredTheme", radio.value); } catch (e) {}
+      });
+    });
+  })();
+</script>

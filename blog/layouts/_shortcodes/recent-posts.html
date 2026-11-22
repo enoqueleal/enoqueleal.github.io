@@ -1,0 +1,21 @@
+{{- /*
+  Lista os artigos mais recentes do idioma atual.
+  Uso: {{< recent-posts >}} ou {{< recent-posts count=3 >}}
+*/ -}}
+{{- $count := int (.Get "count" | default 5) -}}
+{{- $section := site.GetPage "/posts" -}}
+{{- $posts := where site.RegularPages "Section" "posts" -}}
+<h2>{{ i18n "recentPosts" }}</h2>
+{{- with first $count $posts.ByDate.Reverse }}
+<ul class="recent-posts">
+  {{- range . }}
+  <li>
+    <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ partial "docs/date" (dict "Date" .Date "Format" site.Params.BookDateFormat) }}</time>
+  </li>
+  {{- end }}
+</ul>
+{{- with $section }}<p><a href="{{ .RelPermalink }}">{{ i18n "allPosts" }} →</a></p>{{ end }}
+{{- else }}
+<p class="recent-posts-empty">{{ i18n "noPostsYet" }}</p>
+{{- end }}

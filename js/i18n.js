@@ -1,9 +1,31 @@
 (function() {
     'use strict';
 
+    // Preferência de idioma compartilhada com o blog (Hugo) e o quiz.
+    // Contrato: localStorage.preferredLanguage = 'pt' | 'en'.
+    const STORAGE_KEY = 'preferredLanguage';
+    const LEGACY_CODES = { 'pt-BR': 'pt' };
+    const BLOG_URLS = { pt: '/blog/', en: '/blog/en/' };
+
+    function readSavedLanguage() {
+        try {
+            return localStorage.getItem(STORAGE_KEY);
+        } catch (e) {
+            return null;
+        }
+    }
+
+    function saveLanguage(lang) {
+        try {
+            localStorage.setItem(STORAGE_KEY, lang);
+        } catch (e) {
+            // localStorage indisponível (ex.: navegação privada): segue sem persistir
+        }
+    }
+
     // Embedded translations to avoid CORS issues
     const translationsData = {
-        'pt-BR': {
+        'pt': {
             "nav": {
                 "home": "Home",
                 "about": "Sobre",
@@ -24,7 +46,7 @@
                 "paragraph1": "Trabalho com tecnologia há 15 anos e, ao longo da minha carreira, tive a oportunidade de atuar em diversas empresas de médio e grande porte, sempre focado no desenvolvimento de soluções e na construção de sistemas em diferentes linguagens, com experiência predominante em Java e seus diversos frameworks.",
                 "paragraph2": "Atualmente, ocupo uma posição de liderança como Engineering Manager, mas busco manter minha veia técnica sempre ativa. Por isso, continuo estudando e me aperfeiçoando, praticando o lifelong learning.",
                 "paragraph3": "Estou constantemente em busca de novos conhecimentos, explorando e testando novas tecnologias, além de me aprofundar naquelas que já domino.",
-                "paragraph4": "Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender outras pessoas. Afinal, niguém sabe de tudo!",
+                "paragraph4": "Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender com outras pessoas. Afinal, ninguém sabe de tudo!",
                 "paragraph5": "Além da minha carreira na indústria como Engenheiro de Software, também atuo na área acadêmica, ministrando aulas no curso superior de Análise e Desenvolvimento de Sistemas no Centro Universitário Senac. Também trabalho como Instrutor Autorizado AWS, entregando treinamentos oficiais da AWS em parceria com a Ka Solution."
             },
             "services": {
@@ -124,21 +146,24 @@
     };
 
     const I18n = {
-        currentLanguage: 'pt-BR',
+        currentLanguage: 'pt',
         translations: translationsData,
         
-        init: function() {
-            // Check for saved language preference
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang) {
-                this.currentLanguage = savedLang;
-            } else {
-                // Detect browser language
-                const browserLang = navigator.language || navigator.userLanguage;
-                if (browserLang.startsWith('en')) {
-                    this.currentLanguage = 'en';
-                }
+        detectLanguage: function() {
+            let saved = readSavedLanguage();
+            if (saved && LEGACY_CODES[saved]) {
+                saved = LEGACY_CODES[saved];
+                saveLanguage(saved);
             }
+            if (saved && this.translations[saved]) {
+                return saved;
+            }
+            const browserLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            return browserLang.indexOf('pt') === 0 ? 'pt' : 'en';
+        },
+
+        init: function() {
+            this.currentLanguage = this.detectLanguage();
             
             this.updateLanguage();
             this.setupLanguageSelector();
@@ -147,7 +172,7 @@
         setLanguage: function(lang) {
             if (this.translations[lang]) {
                 this.currentLanguage = lang;
-                localStorage.setItem('preferredLanguage', lang);
+                saveLanguage(lang);
                 this.updateLanguage();
                 this.updateLanguageSelectorUI();
             }
@@ -174,7 +199,13 @@
             });
             
             // Update HTML lang attribute
-            document.documentElement.lang = this.currentLanguage === 'pt-BR' ? 'pt-BR' : 'en';
+            document.documentElement.lang = this.currentLanguage === 'pt' ? 'pt-BR' : 'en';
+
+            // Link do blog aponta para a versão do idioma atual
+            const blogLink = document.getElementById('nav-blog');
+            if (blogLink) {
+                blogLink.setAttribute('href', BLOG_URLS[this.currentLanguage] || BLOG_URLS.pt);
+            }
         },
         
         getNestedTranslation: function(obj, path) {
@@ -184,13 +215,13 @@
         },
         
         setupLanguageSelector: function() {
-            const langPt = document.getElementById('lang-pt-BR');
+            const langPt = document.getElementById('lang-pt');
             const langEn = document.getElementById('lang-en');
             
             if (langPt) {
                 langPt.addEventListener('click', function(e) {
                     e.preventDefault();
-                    I18n.setLanguage('pt-BR');
+                    I18n.setLanguage('pt');
                 });
             }
             
@@ -205,11 +236,11 @@
         },
         
         updateLanguageSelectorUI: function() {
-            const langPt = document.getElementById('lang-pt-BR');
+            const langPt = document.getElementById('lang-pt');
             const langEn = document.getElementById('lang-en');
             
             if (langPt && langEn) {
-                if (this.currentLanguage === 'pt-BR') {
+                if (this.currentLanguage === 'pt') {
                     langPt.parentElement.style.display = 'none';
                     langEn.parentElement.style.display = 'block';
                     langEn.classList.add('active');

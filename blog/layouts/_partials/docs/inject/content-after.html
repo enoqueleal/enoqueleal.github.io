@@ -1,0 +1,6 @@
+{{- /* Artigos importados do DEV.to terminam com o link para o texto original. */ -}}
+{{- with .Params.devto.url }}
+<p class="original-source markdown">
+  {{ i18n "originalText" }}: <a href="{{ . }}" target="_blank" rel="noopener">{{ . }}</a>
+</p>
+{{- end }}
