@@ -4,7 +4,7 @@ slug: creating-a-connection-pool-with-apache-commons-dbcp
 date: 2023-05-16T23:11:16Z
 lastmod: 2023-07-31T12:31:07Z
 tags: ["java", "databases"]
-summary: "Creating a connection pool with Apache Commons DBCP"
+summary: "A step-by-step Java tutorial on setting up a connection pool with Apache Commons DBCP in IntelliJ IDEA, from the pom.xml dependency to a class that manages the BasicDataSource, so the application reuses connections and performs better."
 translatedFrom: pt
 devto:
   id: 1470497

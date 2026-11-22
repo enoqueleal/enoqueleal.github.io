@@ -4,7 +4,7 @@ slug: your-first-aws-certification-where-to-start
 date: 2022-09-14T13:50:31Z
 lastmod: 2023-07-28T21:14:01Z
 tags: ["cloud", "aws", "certification"]
-summary: "Want to earn your first AWS certification and don't know where to start? I can help!"
+summary: "How to take the first step toward the AWS Cloud Practitioner: stay calm, focus on a single source, the free official AWS Skill Builder training, and keep a realistic study routine you can actually follow."
 translatedFrom: pt
 devto:
   id: 1192035

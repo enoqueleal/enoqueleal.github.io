@@ -143,3 +143,10 @@
 .book-menu .book-menu-section-title.active {
   color: var(--color-link);
 }
+
+/* Lista de artigos: a coluna de texto ocupa o espaço livre, para a capa ficar sempre
+   alinhada à direita, mesmo quando o resumo é curto. */
+.book-post-container > div:first-child {
+  flex: 1 1 0;
+  min-width: 0;
+}

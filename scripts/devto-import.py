@@ -59,6 +59,8 @@ for _tag in TAG_MAP.values():
 
 # Resumos editoriais, quando a descrição do DEV.to só repete o título.
 SUMMARY_OVERRIDES = {
+    1192035: "Como dar o primeiro passo rumo à AWS Cloud Practitioner: calma, foco em uma única fonte, o treinamento oficial e gratuito do AWS Skill Builder, e uma rotina de estudos realista que você consiga cumprir.",
+    1470497: "Tutorial passo a passo, em Java, para configurar um pool de conexões com Apache Commons DBCP no IntelliJ IDEA: da dependência no pom.xml à classe que centraliza o BasicDataSource, para reaproveitar conexões e melhorar o desempenho da aplicação.",
     1554716: "Microsserviços não são bala de prata e o monólito não é o vilão. A partir das definições de Sam Newman e Martin Fowler, convido você a refletir antes de migrar, para não criar monólitos distribuídos e custos desnecessários.",
 }
 

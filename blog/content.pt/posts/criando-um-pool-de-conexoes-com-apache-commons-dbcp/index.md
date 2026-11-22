@@ -3,7 +3,7 @@ title: "Criando um pool de conexões com Apache Commons DBCP"
 date: 2023-05-16T23:11:16Z
 lastmod: 2023-07-31T12:31:07Z
 tags: ["java", "bancodedados"]
-summary: "Criando um pool de conexões com Apache Commons DBCP"
+summary: "Tutorial passo a passo, em Java, para configurar um pool de conexões com Apache Commons DBCP no IntelliJ IDEA: da dependência no pom.xml à classe que centraliza o BasicDataSource, para reaproveitar conexões e melhorar o desempenho da aplicação."
 devto:
   id: 1470497
   url: https://dev.to/enoqueleal/criando-um-pool-de-conexoes-com-apache-commons-dbcp-1528

@@ -3,7 +3,7 @@ title: "Deseja conquistar sua primeira certificação AWS e não sabe por onde c
 date: 2022-09-14T13:50:31Z
 lastmod: 2023-07-28T21:14:01Z
 tags: ["cloud", "aws", "certificacao"]
-summary: "Deseja conquistar sua primeira certificação AWS e não sabe por onde começar? Eu te ajudo!"
+summary: "Como dar o primeiro passo rumo à AWS Cloud Practitioner: calma, foco em uma única fonte, o treinamento oficial e gratuito do AWS Skill Builder, e uma rotina de estudos realista que você consiga cumprir."
 devto:
   id: 1192035
   url: https://dev.to/enoqueleal/deseja-conquistar-sua-primeira-certificacao-aws-e-nao-sabe-por-onde-comecar-eu-te-ajudo-51ha
