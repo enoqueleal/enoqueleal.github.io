@@ -53,26 +53,6 @@ hugo new --source blog content.pt/docs/java/streams.md          # nova página n
 - Ícones do menu ficam em `blog/assets/icons/` (licenças em `LICENSES.md`).
 - O Google Analytics só é incluído no build de produção, então o `hugo server` não coleta métricas.
 
-### Artigos importados do DEV.to
-
-Os 6 artigos publicados em https://dev.to/enoqueleal foram importados para `blog/content.pt/posts/` pelo script `scripts/devto-import.py`. Ele usa só a biblioteca padrão do Python e **só lê** a API pública do DEV.to (não altera nada lá):
-
-```sh
-python3 scripts/devto-import.py --dry-run          # mostra o que faria
-python3 scripts/devto-import.py                    # reimporta todos (sobrescreve os bundles PT)
-python3 scripts/devto-import.py --only 1554716     # só um artigo, pelo id do DEV.to
-```
-
-- **O que o script faz:**
-  - remove o front matter do DEV.to e o "[ pt-BR ]" dos títulos;
-  - rebaixa os títulos internos (o H1 é o título do artigo);
-  - normaliza as tags (`TAG_MAP`);
-  - baixa capa (`thumbnail.*`) e imagens para o bundle.
-- **Ajustes manuais ficam no próprio script**, para a saída ser reproduzível: `TITLE_OVERRIDES`, `ALT_OVERRIDES` e `LOCAL_IMAGE_OVERRIDES`, que aponta para versões otimizadas em `scripts/devto-assets/`.
-- **As versões em inglês** (`blog/content.en/posts/<mesmo-diretório>/`) são traduções feitas à mão: têm `slug` próprio, `translatedFrom: pt` e o shortcode `{{</* translated-from */>}}` no topo. Uma tradução nova nasce com `draft: true` e só é publicada depois da revisão do autor. As 6 atuais já foram aprovadas e publicadas. **Reimportar não as altera**, mas, se um artigo mudar no DEV.to, a tradução precisa ser revista.
-- **Rodapé:** cada artigo importado termina com "Texto original: <link do DEV.to>" (front matter `devto.url`).
-- **Trilhas:** cada trilha lista os artigos com a tag correspondente pelo shortcode `{{</* related-posts tag="java" */>}}`.
-
 ### Tema claro/escuro
 
 O menu do blog tem o seletor Automático/Claro/Escuro. A escolha fica em `localStorage.preferredTheme` (`auto`, `light` ou `dark`) e também vale no quiz. A página principal ainda não tem modo escuro.
