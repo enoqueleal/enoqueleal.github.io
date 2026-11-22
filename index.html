@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
     <title>enoque.dev</title>
@@ -18,12 +18,14 @@
     <link rel='stylesheet' type='text/css' href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700'>
     <script type="text/javascript" src="js/modernizr.custom.js"></script>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <!-- Google Analytics (GA4) — mesma propriedade do blog e do quiz -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9L3PKSVL0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-X9L3PKSVL0');
+    </script>
 </head>
 
 <body>
@@ -47,10 +49,10 @@
                 <li><a href="#about-section" class="page-scroll" data-i18n="nav.about">Sobre</a></li>
                 <li><a href="#services-section" class="page-scroll" data-i18n="nav.services">Serviços</a></li>
                 <li><a href="#works-section" class="page-scroll" data-i18n="nav.technologies">Tecnologias</a></li>
-                <li><a href="https://dev.to/enoqueleal" class="page-scroll" data-i18n="nav.blog">Blog</a></li>
+                <li><a href="/blog/" id="nav-blog" data-i18n="nav.blog">Blog</a></li>
                 <li><a href="https://linktr.ee/enoque.dev" class="page-scroll" data-i18n="nav.linktree">Linktree</a></li>
                 <li><a href="#contact-section" class="page-scroll" data-i18n="nav.contact">Contato</a></li>
-                <li><a href="#" id="lang-pt-BR" class="page-scroll">🇧🇷 PT</a></li>
+                <li><a href="#" id="lang-pt" class="page-scroll">🇧🇷 PT</a></li>
                 <li><a href="#" id="lang-en" class="page-scroll">🇺🇸 EN</a></li>
             </ul>
         </div>
@@ -89,7 +91,7 @@
 
                     <p data-i18n="about.paragraph3">Estou constantemente em busca de novos conhecimentos, explorando e testando novas tecnologias, além de me aprofundar naquelas que já domino.</p>
 
-                    <p data-i18n="about.paragraph4">Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender outras pessoas. Afinal, ninguém sabe de tudo!</p>
+                    <p data-i18n="about.paragraph4">Gosto muito de trabalhar em equipe, em ambientes colaborativos, e de compartilhar conhecimentos e também de aprender com outras pessoas. Afinal, ninguém sabe de tudo!</p>
 
                     <p data-i18n="about.paragraph5">Além da minha carreira na indústria como Engenheiro de Software, também atuo na área acadêmica, ministrando aulas no curso superior de Análise e Desenvolvimento de Sistemas no Centro Universitário Senac. Também trabalho como Instrutor Autorizado AWS, entregando treinamentos oficiais da AWS em parceria com a Ka Solution.</p>
 
@@ -178,7 +180,7 @@
                                 <h4>AWS</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <img src="img/logos/aws.svg" class="img-responsive" alt="Project Title">
+                            <img src="img/logos/aws.svg" class="img-responsive" alt="AWS">
                         </div>
                     </div>
                 </div>
@@ -189,7 +191,7 @@
                                 <h4>Spring Boot</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <img src="img/logos/spring.svg" class="img-responsive" alt="Project Title">
+                            <img src="img/logos/spring.svg" class="img-responsive" alt="Spring Boot">
                         </div>
                     </div>
                 </div>
@@ -200,7 +202,7 @@
                                 <h4>Quarkus</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <img src="img/logos/quarkus.svg" class="img-responsive" alt="Project Title">
+                            <img src="img/logos/quarkus.svg" class="img-responsive" alt="Quarkus">
                         </div>
                     </div>
                 </div>
@@ -211,7 +213,7 @@
                                 <h4>Java</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <img src="img/logos/java.svg" class="img-responsive" alt="Project Title">
+                            <img src="img/logos/java.svg" class="img-responsive" alt="Java">
                         </div>
                     </div>
                 </div>
@@ -222,7 +224,7 @@
                                 <h4>Go</h4>
                                 <div class="clearfix"></div>
                             </div>
-                            <img src="img/logos/go.svg" class="img-responsive" alt="Project Title">
+                            <img src="img/logos/go.svg" class="img-responsive" alt="Go">
                         </div>
                     </div>
                 </div>
@@ -268,7 +270,6 @@
 </div>
 
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.1.11.1.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script type="text/javascript" src="js/bootstrap.js"></script>
@@ -277,8 +278,6 @@
 <script type="text/javascript" src="js/jquery.counterup.js"></script>
 <script type="text/javascript" src="js/waypoints.js"></script>
 <script type="text/javascript" src="js/jquery.isotope.js"></script>
-<script type="text/javascript" src="js/jqBootstrapValidation.js"></script>
-<script type="text/javascript" src="js/contact_me.js"></script>
 
 <!-- Javascripts -->
 <script type="text/javascript" src="js/i18n.js"></script>
