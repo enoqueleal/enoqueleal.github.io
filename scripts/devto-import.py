@@ -57,6 +57,11 @@ for _tag in TAG_MAP.values():
     if _tag is not None and not HASHTAG_RE.match(_tag):
         raise SystemExit(f"tag fora do formato de hashtag em TAG_MAP: {_tag!r}")
 
+# Resumos editoriais, quando a descrição do DEV.to só repete o título.
+SUMMARY_OVERRIDES = {
+    1554716: "Microsserviços não são bala de prata e o monólito não é o vilão. A partir das definições de Sam Newman e Martin Fowler, convido você a refletir antes de migrar, para não criar monólitos distribuídos e custos desnecessários.",
+}
+
 # Ajustes editoriais de título, além da remoção automática de "[ pt-BR ]".
 TITLE_OVERRIDES = {
     995475: "Golang for Java Developers: parte 1",
@@ -251,7 +256,7 @@ def build_front_matter(article, title, tags):
         lines.append(f"lastmod: {article['edited_at']}")
     lines += [
         f"tags: {json.dumps(tags, ensure_ascii=False)}",
-        f"summary: {yaml_str(article['description'].strip())}",
+        f"summary: {yaml_str(SUMMARY_OVERRIDES.get(article['id'], article['description'].strip()))}",
         "devto:",
         f"  id: {article['id']}",
         f"  url: {article['url']}",

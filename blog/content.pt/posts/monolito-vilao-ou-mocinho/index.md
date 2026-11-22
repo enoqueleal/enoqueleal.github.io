@@ -3,7 +3,7 @@ title: "Monólito, vilão ou mocinho?"
 date: 2023-07-31T12:42:41Z
 lastmod: 2023-07-31T12:46:11Z
 tags: ["arquitetura", "microsservicos"]
-summary: "Monólito, vilão ou mocinho?"
+summary: "Microsserviços não são bala de prata e o monólito não é o vilão. A partir das definições de Sam Newman e Martin Fowler, convido você a refletir antes de migrar, para não criar monólitos distribuídos e custos desnecessários."
 devto:
   id: 1554716
   url: https://dev.to/enoqueleal/monolito-vilao-ou-mocinho-52el

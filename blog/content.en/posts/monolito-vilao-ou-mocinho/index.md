@@ -4,7 +4,7 @@ slug: monolith-villain-or-hero
 date: 2023-07-31T12:42:41Z
 lastmod: 2023-07-31T12:46:11Z
 tags: ["architecture", "microservices"]
-summary: "Monolith: villain or hero?"
+summary: "Microservices are not a silver bullet, and the monolith is not the villain. Drawing on Sam Newman's and Martin Fowler's definitions, I invite you to think twice before migrating, so you don't end up with distributed monoliths and unnecessary costs."
 translatedFrom: pt
 devto:
   id: 1554716
