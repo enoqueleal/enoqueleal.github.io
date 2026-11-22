@@ -1,0 +1,26 @@
+# Textos do blog (somam-se aos textos do tema hugo-book)
+- id: themeLabel
+  translation: Tema
+- id: themeAuto
+  translation: Automático
+- id: themeLight
+  translation: Claro
+- id: themeDark
+  translation: Escuro
+- id: recentPosts
+  translation: Artigos recentes
+- id: allPosts
+  translation: Ver todos os artigos
+- id: noPostsYet
+  translation: Em breve os primeiros artigos.
+- id: originalText
+  translation: Texto original
+- id: relatedPosts
+  translation: Artigos relacionados
+- id: translatedFromNotice
+  translation: Este artigo foi escrito originalmente em português.
+- id: readOriginal
+  translation: Ler o original.
+
+- id: coverImageFor
+  translation: "Imagem de capa de {{ . }}"

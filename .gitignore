@@ -19,6 +19,7 @@ Thumbs.db
 
 # Hugo
 blog/public/
+_site/
 blog/resources/
 blog/.hugo_build.lock
 

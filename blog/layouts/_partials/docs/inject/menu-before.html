@@ -1,0 +1,11 @@
+{{- /* Seletor de tema: Automático / Claro / Escuro. O script está em inject/body.html. */ -}}
+<fieldset class="theme-switch" id="theme-switch">
+  <legend class="theme-switch-legend">{{ i18n "themeLabel" }}</legend>
+  {{- range slice (dict "value" "light" "icon" "light_mode" "key" "themeLight") (dict "value" "auto" "icon" "contrast" "key" "themeAuto") (dict "value" "dark" "icon" "dark_mode" "key" "themeDark") }}
+  <label class="theme-switch-option" title="{{ i18n .key }}">
+    <input type="radio" name="theme" value="{{ .value }}" {{ if eq .value "auto" }}checked{{ end }}>
+    <svg class="book-icon" aria-hidden="true">{{ partial "docs/icon" .icon }}</svg>
+    <span class="theme-switch-text">{{ i18n .key }}</span>
+  </label>
+  {{- end }}
+</fieldset>

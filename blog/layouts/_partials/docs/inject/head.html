@@ -1,0 +1,18 @@
+{{- /*
+  Executa no <head>, antes do primeiro paint:
+  1. Tema: aplica localStorage.preferredTheme ('auto'|'light'|'dark') em data-theme,
+     sem piscar o tema errado. Compartilhado com o Design Patterns Quiz.
+  2. Idioma: grava o idioma da página em localStorage.preferredLanguage,
+     para a página principal e o quiz abrirem no mesmo idioma (js/i18n.js).
+*/ -}}
+<script>
+  (function () {
+    try {
+      var theme = localStorage.getItem("preferredTheme");
+      if (theme === "auto" || theme === "light" || theme === "dark") {
+        document.documentElement.setAttribute("data-theme", theme);
+      }
+      localStorage.setItem("preferredLanguage", {{ site.Language.Lang }});
+    } catch (e) {}
+  })();
+</script>

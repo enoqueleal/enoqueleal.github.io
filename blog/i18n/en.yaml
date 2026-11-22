@@ -1,0 +1,26 @@
+# Blog strings (merged with the hugo-book theme strings)
+- id: themeLabel
+  translation: Theme
+- id: themeAuto
+  translation: Auto
+- id: themeLight
+  translation: Light
+- id: themeDark
+  translation: Dark
+- id: recentPosts
+  translation: Recent articles
+- id: allPosts
+  translation: See all articles
+- id: noPostsYet
+  translation: The first articles are coming soon.
+- id: originalText
+  translation: Original text
+- id: relatedPosts
+  translation: Related articles
+- id: translatedFromNotice
+  translation: This article was originally written in Portuguese.
+- id: readOriginal
+  translation: Read the original.
+
+- id: coverImageFor
+  translation: "Cover image for {{ . }}"

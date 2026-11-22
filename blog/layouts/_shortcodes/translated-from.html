@@ -1,0 +1,12 @@
+{{- /*
+  Aviso no início de um artigo traduzido, com link para o original.
+  Uso: {{< translated-from >}} em páginas com `translatedFrom: <idioma>` no front matter.
+*/ -}}
+{{- $from := .Page.Params.translatedFrom -}}
+{{- if not $from }}{{ errorf "%s: translated-from exige `translatedFrom` no front matter" .Page.File.Path }}{{ end -}}
+{{- $original := "" -}}
+{{- range .Page.AllTranslations }}{{ if eq .Language.Lang $from }}{{ $original = . }}{{ end }}{{ end -}}
+{{- if not $original }}{{ errorf "%s: tradução de origem (%s) não encontrada" .Page.File.Path $from }}{{ end -}}
+<div class="translated-from" lang="{{ .Page.Language.LanguageCode }}">
+  <p>{{ i18n "translatedFromNotice" }} <a href="{{ $original.RelPermalink }}" hreflang="{{ $original.Language.LanguageCode }}">{{ i18n "readOriginal" }}</a></p>
+</div>

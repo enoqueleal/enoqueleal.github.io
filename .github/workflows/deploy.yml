@@ -1,0 +1,74 @@
+# Publica enoque.dev no GitHub Pages:
+#   /                       página principal (HTML estático na raiz)
+#   /blog/ e /blog/en/      blog Hugo (blog/, tema hugo-book via submódulo)
+#   /design-patterns-quiz/  quiz
+# Requer Settings → Pages → Source = "GitHub Actions".
+name: Deploy site
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+env:
+  # Manter igual à versão instalada localmente (ver README.md)
+  HUGO_VERSION: 0.158.0
+  SITE_URL: https://enoque.dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (com submódulos e histórico completo para o GitInfo)
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Instalar Hugo extended ${{ env.HUGO_VERSION }}
+        run: |
+          wget -q -O "${RUNNER_TEMP}/hugo.deb" \
+            "https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb"
+          sudo dpkg -i "${RUNNER_TEMP}/hugo.deb"
+          hugo version
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build do blog
+        env:
+          HUGO_ENVIRONMENT: production
+        run: |
+          hugo --source blog --minify --gc \
+            --baseURL "${SITE_URL}/blog/" \
+            --destination "${GITHUB_WORKSPACE}/_site/blog"
+
+      - name: Montar página principal e quiz
+        run: |
+          cp -R index.html CNAME css js fonts img design-patterns-quiz _site/
+          find _site -name '.DS_Store' -delete
+
+      - name: Enviar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
