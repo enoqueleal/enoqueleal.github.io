@@ -1,46 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Design Patterns Quiz</title>
+    <meta name="description" content="Você conhece design patterns? Responda o quiz, veja as explicações e descubra.">
+    <meta name="color-scheme" content="light dark">
+    <script>
+        // Tema escolhido no blog (localStorage.preferredTheme), aplicado antes do primeiro paint
+        try {
+            var theme = localStorage.getItem('preferredTheme');
+            if (theme === 'auto' || theme === 'light' || theme === 'dark') {
+                document.documentElement.setAttribute('data-theme', theme);
+            }
+        } catch (e) {}
+    </script>
+    <meta name="theme-color" content="#f6f6f6" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#151a18" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@300;400;500&display=swap">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Analytics (GA4): mesma propriedade da página principal e do blog -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9L3PKSVL0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-X9L3PKSVL0');
+    </script>
+</head>
+
 <body>
-    <html>
-    <head>
-        <title>Design Patterns Quiz</title>
-        <link type="text/css" rel="stylesheet" href="style.css" />
-        <meta name="viewport" content="width=device-width">
-        <meta charset="utf-8">
-        <meta name="description" content="Você conhece sobre Design Patterns? Responda esse quiz e descubra.">
-        <link href='https://fonts.googleapis.com/css?family=Oswald:300' rel='stylesheet' type='text/css'>
-        <script type="text/javascript" src="i18n.js"></script>
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-X9L3PKSVL0"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-X9L3PKSVL0');
-        </script>
-    </head>
-    <body ontouchstart="">
-        <div style="text-align: right; padding: 10px;">
-            <a href="#" id="lang-pt-BR" style="margin-right: 15px; text-decoration: none; color: #333;">🇧🇷 Português</a>
-            <a href="#" id="lang-en" style="text-decoration: none; color: #333;">🇺🇸 English</a>
-        </div>
-        <h1>Design Patterns</h1>
-        <h2></h2>
+    <header class="topbar">
+        <a class="back-link" href="https://enoque.dev/"><span aria-hidden="true">←</span> <span data-i18n="backToSite">enoque.dev</span></a>
+        <button type="button" id="lang-toggle" class="lang-toggle">English</button>
+    </header>
 
-        <p id="image"></p>
-        <div id="try-again-container" style="display:none;"><button id="try-again" data-i18n="tryAgain">Tentar novamente</button></div>
-        <ul>
-            <li><button class="submit-answer" id="0"></button></li>
-            <li><button class="submit-answer" id="1"></button></li>
-            <li><button class="submit-answer" id="2"></button></li>
-        </ul>
+    <main id="app" class="card">
+        <noscript>
+            <p>Este quiz precisa de JavaScript. / This quiz requires JavaScript.</p>
+        </noscript>
+    </main>
 
-        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-        <script language="javascript" src="script.js"></script>
-    </body>
+    <div id="announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
 
-    </html>
-
+    <script src="questions.js"></script>
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
